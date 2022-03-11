@@ -5,10 +5,10 @@ public class VaccineModel {
     private String vaccineName;
     private String description;
     private int doses;
-    private int ageLimit;
+    private String ageLimit;
     private boolean isAvailable;
 
-    public VaccineModel(int id, String vaccineName, String description, int doses, int ageLimit, boolean isAvailable) {
+    public VaccineModel(int id, String vaccineName, String description, int doses, String ageLimit, boolean isAvailable) {
         this.id = id;
         this.vaccineName = vaccineName;
         this.description = description;
@@ -64,11 +64,11 @@ public class VaccineModel {
         this.doses = doses;
     }
 
-    public int getAgeLimit() {
+    public String getAgeLimit() {
         return ageLimit;
     }
 
-    public void setAgeLimit(int ageLimit) {
+    public void setAgeLimit(String ageLimit) {
         this.ageLimit = ageLimit;
     }
 

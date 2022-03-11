@@ -32,7 +32,13 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "added", Toast.LENGTH_SHORT).show();
+                try {
+                    VaccineModel vaccineModel = new VaccineModel(1, "HepatitisB", "For HepB", 3, "At Birth", availableVaccine.isChecked() );
+                    Toast.makeText(MainActivity.this, vaccineModel.toString(), Toast.LENGTH_LONG).show();
+                }
+                catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Makosa imefanyika", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
