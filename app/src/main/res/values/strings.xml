@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">kindercare</string>
+    <string name="babyName">Baby Name</string>
+    <string name="babyAge">Baby Age</string>
+    <string name="activeVaccine">Active</string>
+</resources>
