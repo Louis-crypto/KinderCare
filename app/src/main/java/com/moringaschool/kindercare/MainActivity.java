@@ -10,10 +10,12 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     Button buttonViewAll, buttonAdd;
-    EditText babyName, babyAge;
+    EditText vaccineName, NoOfDoses, vaccineDescription, ageLimit, vaccineID;
     Switch availableVaccine;
     ListView listViewVaccines;
 
@@ -24,28 +26,40 @@ public class MainActivity extends AppCompatActivity {
 
         buttonAdd = findViewById(R.id.buttonAdd);
         buttonViewAll = findViewById(R.id.buttonViewAll);
-        babyName = findViewById(R.id.babyName);
-        babyAge = findViewById(R.id.babyAge);
+        vaccineName = findViewById(R.id.vaccineName);
+        vaccineDescription = findViewById(R.id.vaccineDescription);
+        ageLimit = findViewById(R.id.ageLimit);
+        vaccineID = findViewById(R.id.vaccineID);
+        NoOfDoses = findViewById(R.id.NoOfDoses);
         availableVaccine = findViewById(R.id.availableVaccine);
         listViewVaccines = findViewById(R.id.listViewVaccines);
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                VaccineModel vaccineModel;
                 try {
-                    VaccineModel vaccineModel = new VaccineModel(1, "HepatitisB", "For HepB", 3, "At Birth", availableVaccine.isChecked() );
+                    vaccineModel = new VaccineModel(-1, vaccineName.getText().toString(), vaccineDescription.getText().toString(), Integer.parseInt(NoOfDoses.getText().toString()), ageLimit.getText().toString(), availableVaccine.isChecked() );
                     Toast.makeText(MainActivity.this, vaccineModel.toString(), Toast.LENGTH_LONG).show();
                 }
                 catch (Exception e){
                     Toast.makeText(MainActivity.this, "Makosa imefanyika", Toast.LENGTH_LONG).show();
+                    vaccineModel = new VaccineModel(-1, "error", "error", 0, "error", false);
                 }
+
+                DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+                boolean success = databaseHelper.addOne(vaccineModel);
+                Toast.makeText(MainActivity.this, "Succeess" + success, Toast.LENGTH_SHORT).show();
             }
         });
 
         buttonViewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "removed", Toast.LENGTH_SHORT).show();
+                DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+                List<VaccineModel> allVaccines = databaseHelper.getAllVaccines();
+                Toast.makeText(MainActivity.this, allVaccines.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
