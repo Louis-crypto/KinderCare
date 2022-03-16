@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -59,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
                 List<VaccineModel> allVaccines = databaseHelper.getAllVaccines();
-                Toast.makeText(MainActivity.this, allVaccines.toString(), Toast.LENGTH_SHORT).show();
+
+                ArrayAdapter vaccineArrayAdapter = new ArrayAdapter<VaccineModel>(MainActivity.this, android.R.layout.simple_list_item_1, allVaccines);
+                listViewVaccines.setAdapter(vaccineArrayAdapter);
+//                Toast.makeText(MainActivity.this, allVaccines.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
