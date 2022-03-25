@@ -6,4 +6,6 @@
     <string name="vaccineDescription"> Description </string>
     <string name="ageLimit">Age Limit</string>
     <string name="vaccineID">Enter ID</string>
+    <string name="made_with_love">made with love</string>
+
 </resources>

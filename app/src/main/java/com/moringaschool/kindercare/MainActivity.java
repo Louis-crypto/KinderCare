@@ -2,7 +2,9 @@ package com.moringaschool.kindercare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,14 +13,12 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     Button buttonViewAll, buttonAdd;
     EditText vaccineName, NoOfDoses, vaccineDescription, ageLimit, vaccineID;
     Switch availableVaccine;
-    ListView listViewVaccines;
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         vaccineID = findViewById(R.id.vaccineID);
         NoOfDoses = findViewById(R.id.NoOfDoses);
         availableVaccine = findViewById(R.id.availableVaccine);
-        listViewVaccines = findViewById(R.id.listViewVaccines);
+
+        databaseHelper = new DatabaseHelper(MainActivity.this);
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,21 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
                 DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
                 boolean success = databaseHelper.addOne(vaccineModel);
-                Toast.makeText(MainActivity.this, "Succeess" + success, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Succeess " + success, Toast.LENGTH_SHORT).show();
             }
         });
 
         buttonViewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
-                List<VaccineModel> allVaccines = databaseHelper.getAllVaccines();
-
-                ArrayAdapter vaccineArrayAdapter = new ArrayAdapter<VaccineModel>(MainActivity.this, android.R.layout.simple_list_item_1, allVaccines);
-                listViewVaccines.setAdapter(vaccineArrayAdapter);
-//                Toast.makeText(MainActivity.this, allVaccines.toString(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ViewAllVaccinesActivity.class));
             }
         });
 
     }
+
 }

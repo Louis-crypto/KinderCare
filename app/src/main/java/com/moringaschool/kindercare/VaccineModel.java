@@ -20,6 +20,9 @@ public class VaccineModel {
     public VaccineModel() {
     }
 
+    public VaccineModel(String vaccineName, String vaccineDescription, Integer vaccineDoses, String vaccineAgeLimit, boolean vaccineAvailability) {
+    }
+
     @Override
     public String toString() {
         return "VaccineModel{" +

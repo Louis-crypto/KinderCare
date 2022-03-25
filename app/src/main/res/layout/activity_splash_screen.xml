@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/smoothwave2"
+        android:layout_marginTop="-115dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Kindercare"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:gravity="center"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_pink_minimalist_simple_baby_brand_logo">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_roughwave"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitEnd"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/made_with_love"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:fontFamily="@font/playlist"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+    </TextView>
+
+
+</RelativeLayout>
