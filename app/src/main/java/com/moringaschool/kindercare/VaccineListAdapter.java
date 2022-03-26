@@ -40,13 +40,11 @@ public class VaccineListAdapter extends ArrayAdapter<VaccineModel> {
         TextView displayDescription = (TextView) convertView.findViewById(R.id.displayDescription);
         TextView displayDoses = (TextView) convertView.findViewById(R.id.displayDoses);
         TextView displayAgeLimit = (TextView) convertView.findViewById(R.id.displayAgeLimit);
-//        TextView displayAvailability = (TextView) convertView.findViewById(R.id.displayAvailability);
 
         displayName.setText(vaccineName);
         displayDescription.setText(vaccineDescription);
         displayDoses.setText(noOfDoses);
         displayAgeLimit.setText(vaccineAgeLimit);
-//        displayAvailability.setText(vaccineAvailability);
         return convertView;
     }
 }
