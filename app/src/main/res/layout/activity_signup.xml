@@ -52,7 +52,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:padding="5dp">
 
             <TextView
@@ -67,6 +67,7 @@
                 android:id="@+id/registerBabyName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:paddingLeft="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
@@ -82,7 +83,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:padding="5dp">
 
             <TextView
@@ -97,6 +98,7 @@
                 android:id="@+id/registerBabyEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
@@ -112,25 +114,26 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:padding="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Baby Age"
+                android:text="Guardian phone number"
                 android:textColor="@color/baby_pink"
                 android:textStyle="bold"
                 android:paddingLeft="16dp"/>
 
             <EditText
-                android:id="@+id/registerBabyAge"
+                android:id="@+id/registerBabyPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:paddingLeft="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:hint="21 months"
+                android:hint="0701234567"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"/>
 
@@ -142,7 +145,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="32dp"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:padding="5dp">
 
             <TextView
@@ -157,6 +160,7 @@
                 android:id="@+id/registerBabyPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:paddingLeft="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
@@ -171,13 +175,20 @@
             android:id="@+id/buttonCreateAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
+            android:layout_margin="5dp"
             android:background="@color/baby_pink"
             android:text="Create Account"
             android:textColor="@color/black"
             android:textAllCaps="false"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
+        <ProgressBar
+            android:id="@+id/loginProgressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/alreadyHaveAccount"

@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="Guardian phone number"
                 android:textColor="@color/baby_pink"
                 android:textStyle="bold"
                 android:paddingLeft="16dp"/>
@@ -67,10 +67,11 @@
                 android:id="@+id/babyEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="phone"
                 android:paddingLeft="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:hint="babyname@gmail.com"
+                android:hint="0701234567"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"/>
 
@@ -97,6 +98,7 @@
                 android:id="@+id/babyPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:paddingLeft="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
@@ -106,21 +108,11 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot password"
-            android:layout_gravity="end"
-            android:layout_marginRight="32dp"
-            android:textColor="@color/baby_pink"
-            android:textStyle="bold"
-            android:padding="10dp"/>
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
+            android:layout_margin="10dp"
             android:background="@color/baby_pink"
             android:text="Login"
             android:textColor="@color/black"
@@ -138,6 +130,13 @@
             android:textColor="@color/baby_pink"
             android:textStyle="bold"
             android:padding="10dp"/>
+
+        <ProgressBar
+            android:id="@+id/loginProgressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
