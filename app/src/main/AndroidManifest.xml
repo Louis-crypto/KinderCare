@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kindercare">
         <activity
+            android:name=".SignupActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="false" />
+
+        <activity
             android:name=".BookVaccineActivity"
             android:exported="false" />
         <activity

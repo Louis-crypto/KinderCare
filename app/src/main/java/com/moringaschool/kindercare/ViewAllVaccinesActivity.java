@@ -36,7 +36,7 @@ public class ViewAllVaccinesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ViewAllVaccinesActivity.this, MainActivity.class);
+                Intent intent = new Intent(ViewAllVaccinesActivity.this, BookVaccineActivity.class);
                 startActivity(intent);
             }
         });
