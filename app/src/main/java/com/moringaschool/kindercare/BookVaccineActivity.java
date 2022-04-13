@@ -1,17 +1,24 @@
 package com.moringaschool.kindercare;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -21,6 +28,7 @@ public class BookVaccineActivity extends AppCompatActivity {
     EditText timePicker;
     TimePickerDialog timePickerDialog;
     DatePickerDialog.OnDateSetListener setListener;
+    private Button bookAppointment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,8 @@ public class BookVaccineActivity extends AppCompatActivity {
 
         appointmentPicker = findViewById(R.id.appointmentDatePicker);
         timePicker = findViewById(R.id.timePicker);
+        bookAppointment = findViewById(R.id.bookAppointmentButton);
+
 
         timePicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +89,18 @@ public class BookVaccineActivity extends AppCompatActivity {
                     }
                 } ,year, month, day);
                 datePickerDialog.show();
+            }
+        });
+
+        bookAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String date = appointmentPicker.getText().toString();
+                String time = timePicker.getText().toString();
+                Intent intent = new Intent(BookVaccineActivity.this,ShowAppontmentActivity.class);
+                intent.putExtra("keydate", date);
+                intent.putExtra("keytime", time);
+                startActivity(intent);
             }
         });
     }
